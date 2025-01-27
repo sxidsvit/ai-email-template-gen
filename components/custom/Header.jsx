@@ -11,7 +11,7 @@ function Header() {
   return (
     <div className='flex justify-between items-center 
     p-4 shadow-sm px-10'>
-      <Image src={'/logo.svg'} alt='logo'
+      <Image src={'/logo.png'} alt='logo'
         width={180}
         height={140}
       />

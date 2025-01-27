@@ -11,11 +11,12 @@ function Hero() {
     '>
             <h2 className='font-extrabold 
         text-5xl text-center
-        '>AI-Powered
-                <span className='text-primary'> Email Templates
+        '>Email Templates
+                <span className='text-primary'> Enhanced with AI
                 </span></h2>
 
-            <p className='text-center mt-4'>Longing to impress clients with AI-powered emails but don’t have enough time to build them on your own? Use the AI-powered email templates that already have AI-generated imagery and copy — save time on email production with us.</p>
+            <p className='text-center mt-4'>Want to wow your clients with AI-driven emails but lack the time to create them yourself?</p>
+            <p> Try our AI-powered email templates, complete with AI-generated visuals and text — streamline your email creation process with us.</p>
 
             <div className='flex gap-5 mt-6'>
                 <Button variant="outline">Try Demo</Button>
@@ -27,7 +28,7 @@ function Hero() {
                 height={800}
                 className='mt-12 rounded-xl'
             />
-        </div>
+        </div >
     )
 }
 
