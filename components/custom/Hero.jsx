@@ -16,7 +16,7 @@ function Hero() {
                 </span></h2>
 
             <p className='text-center mt-4'>Want to wow your clients with AI-driven emails but lack the time to create them yourself?</p>
-            <p> Try our AI-powered email templates, complete with AI-generated visuals and text — streamline your email creation process with us.</p>
+            <p className='text-center'> Try our AI-powered email templates, complete with AI-generated visuals and text — streamline your email creation process with us.</p>
 
             <div className='flex gap-5 mt-6'>
                 <Button variant="outline">Try Demo</Button>
