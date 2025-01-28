@@ -8,6 +8,7 @@ import Link from 'next/link'
 
 function Header() {
   const { userDetail, setUserDetail } = useUserDetail();
+
   return (
     <div className='flex justify-between items-center 
     p-4 shadow-sm px-10'>

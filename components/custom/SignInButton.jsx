@@ -42,7 +42,7 @@ function SignInButton() {
                 localStorage.setItem('userDetail', JSON.stringify(userDetail));
             }
             router.refresh('/');
-            router.push('/dashboard');
+            router.push('/');
         },
         onError: errorResponse => console.log(errorResponse),
     });

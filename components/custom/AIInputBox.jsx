@@ -16,6 +16,7 @@ function AIInputBox() {
     const SaveTemplate = useMutation(api.emailTemplate.SaveTemplate)
     const { userDetail, setUserDetail } = useUserDetail();
     const router = useRouter();
+
     const OnGenerate = async () => {
         const PROMPT = Prompt.EMAIL_PROMPT + "\n-" + userInput;
         const tid = uuidv4();

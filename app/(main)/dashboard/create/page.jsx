@@ -1,9 +1,16 @@
+'use client'
 import React from 'react'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Sparkles } from 'lucide-react'
 import AIInputBox from '@/components/custom/AIInputBox'
+import { Button } from '@/components/ui/button';
+import { useRouter } from 'next/navigation';
+import { v4 as uuidv4 } from 'uuid';
 
 function Create() {
+    const router = useRouter();
+    const tid = uuidv4()
+    const onCreate = () => { router.push('/editor/' + tid) }
 
     return (
         <div className='px-10 md:px-28 lg:px-64 xl:px-72 mt-20'>
@@ -18,11 +25,17 @@ function Create() {
                     <TabsContent value="AI">
                         <AIInputBox />
                     </TabsContent>
-                    <TabsContent value="SCRATCH">Change your password here.</TabsContent>
+                    <TabsContent value="SCRATCH">
+                        <Button
+                            className="mt-10 ml-[75px]"
+                            onClick={onCreate} >
+                            Create template
+                        </Button>
+                    </TabsContent>
                 </Tabs>
 
             </div>
-        </div>
+        </div >
     )
 }
 
