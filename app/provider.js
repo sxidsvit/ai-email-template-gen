@@ -32,7 +32,7 @@ function Provider({ children }) {
 
 
       if (!storage?.email || !storage) {
-        localStorage.setItem('emailTemplate', JSON.stringify(null))
+        localStorage.setItem('emailTemplate', JSON.stringify([]))
         localStorage.setItem('userDetail', JSON.stringify(null))
         router.push('/')
         router.refresh('/')
