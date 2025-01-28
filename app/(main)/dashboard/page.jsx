@@ -4,11 +4,24 @@ import EmailTemplateList from '@/components/custom/EmailTemplateList';
 import Header from '@/components/custom/Header'
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 
 function Dashboard() {
 
     const { userDetail, setUserDetail } = useUserDetail();
+
+    const [isClient, setIsClient] = useState(false);
+
+    useEffect(() => {
+        if (typeof window !== undefined) {
+            setIsClient(true);
+            console.log('Dashboard - userDetail: ', userDetail);
+        }
+    }, []);
+
+    if (!isClient) {
+        return null;
+    }
 
     return (
         <div>

@@ -26,7 +26,7 @@ function EditorHeader({ viewHTMLCode }) {
     return (
         <div className='p-4 shadow-sm flex justify-between items-center'>
             <Link href={'/dashboard'}>
-                <Image src={'/logo.svg'} alt='log' width={160} height={150} />
+                <Image src={'/logo.png'} alt='log' width={160} height={150} />
             </Link>
             <div className='flex gap-3'>
                 <Button variant="ghost"

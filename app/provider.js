@@ -7,6 +7,9 @@ import { ScreenSizeContext } from '@/context/ScreenSizeContext';
 import { DragDropLayoutElement } from '@/context/DragDropLayouElement';
 import { EmailTemplateContext } from '@/context/EmailTemplateContext';
 import { SelectedElementContext } from '@/context/SelectedElementContext';
+import { useRouter } from 'next/navigation';
+
+
 function Provider({ children }) {
   const convex = new ConvexReactClient(process.env.NEXT_PUBLIC_CONVEX_URL);
   const [userDetail, setUserDetail] = useState();
@@ -14,6 +17,8 @@ function Provider({ children }) {
   const [dragElementLayout, setDragElementLayout] = useState();
   const [emailTemplate, setEmailTemplate] = useState([]);
   const [selectedElement, setSelectedElement] = useState();
+
+  const router = useRouter();
 
 
   useEffect(() => {
@@ -27,7 +32,10 @@ function Provider({ children }) {
 
 
       if (!storage?.email || !storage) {
-        // Redirect to Home Screen
+        localStorage.setItem('emailTemplate', JSON.stringify(null))
+        localStorage.setItem('userDetail', JSON.stringify(null))
+        router.push('/')
+        router.refresh('/')
       }
       else {
 
@@ -37,7 +45,6 @@ function Provider({ children }) {
   }, [])
 
   useEffect(() => {
-    console.log(emailTemplate)
     if (typeof window !== undefined) {
       localStorage.setItem('emailTemplate', JSON.stringify(emailTemplate))
     }
