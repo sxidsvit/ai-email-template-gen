@@ -14,7 +14,6 @@ function Canvas({ viewHTMLCode, closeDialog }) {
     const onDragOver = (e) => {
         e.preventDefault();
         setDragOver(true);
-        console.log('Over...')
     }
     const onDropHandle = () => {
         setDragOver(false);
@@ -36,7 +35,6 @@ function Canvas({ viewHTMLCode, closeDialog }) {
     const GetHTMLCode = () => {
         if (htmlRef.current) {
             const htmlContent = htmlRef.current.innerHTML;
-            console.log(htmlContent);
             setHtmlCode(htmlContent);
         }
     }

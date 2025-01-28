@@ -7,7 +7,6 @@ export async function POST(req) {
     try {
         const result = await GenerateEmailTemplateAIModel.sendMessage(prompt);
         const aiResp = result.response.text();
-        console.log(aiResp);
 
         // Save this to Database;
 

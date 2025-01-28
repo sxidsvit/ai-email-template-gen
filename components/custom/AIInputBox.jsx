@@ -25,7 +25,6 @@ function AIInputBox() {
                 prompt: PROMPT,
 
             });
-            console.log(result.data);
             // Save the data in DB
             const resp = await SaveTemplate({
                 tid: tid,
@@ -33,12 +32,10 @@ function AIInputBox() {
                 email: userDetail?.email,
                 description: userInput
             })
-            console.log(resp);
             //Navigate user to editor screen/Page
             router.push('/editor/' + tid)
             setLoading(false);
         } catch (e) {
-            console.log(e);
             setLoading(false)
         }
     }

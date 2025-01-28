@@ -22,7 +22,6 @@ function SignInButton() {
                 { headers: { Authorization: 'Bearer ' + tokenResponse?.access_token } },
             );
 
-            console.log(userInfo.data);
             const user = userInfo.data;
 
             //Save to Database
@@ -38,8 +37,6 @@ function SignInButton() {
             }
 
             setUserDetail(userDetail)
-            console.log('signButton - userDetail ', userDetail)
-
 
             if (typeof window !== undefined) {
                 localStorage.setItem('userDetail', JSON.stringify(userDetail));

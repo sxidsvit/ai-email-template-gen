@@ -30,7 +30,6 @@ function Editor() {
             email: userDetail?.email
         });
 
-        console.log(result);
         setEmailTemplate(result?.design)
         setLoading(false);
 

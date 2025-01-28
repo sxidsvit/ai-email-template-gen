@@ -2,7 +2,6 @@ import React from 'react'
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group"
 
 function ToogleGroupField({ label, value, options, onHandleStyleChange }) {
-    console.log("OPTIONS", options)
     return (
         <div>
             <label>{label}</label>

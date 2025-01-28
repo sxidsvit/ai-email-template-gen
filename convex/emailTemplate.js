@@ -58,7 +58,6 @@ export const UpdateTemplateDesign = mutation({
             .collect();
 
         const docId = result[0]._id;
-        console.log(docId);
         // Update that docId 
 
         await ctx.db.patch(docId, {

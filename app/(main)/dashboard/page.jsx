@@ -15,7 +15,6 @@ function Dashboard() {
     useEffect(() => {
         if (typeof window !== undefined) {
             setIsClient(true);
-            console.log('Dashboard - userDetail: ', userDetail);
         }
     }, []);
 

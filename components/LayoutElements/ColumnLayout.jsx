@@ -22,7 +22,6 @@ function ColumnLayout({ layout }) {
             index: index,
             columnId: layout?.id
         })
-        console.log(dragOver)
     }
 
     const onDropHandle = () => {
@@ -32,7 +31,6 @@ function ColumnLayout({ layout }) {
                 { ...col, [index]: dragElementLayout?.dragElement }
                 : col)
         )
-        console.log(emailTemplate)
         setDragOver(null);
     }
 

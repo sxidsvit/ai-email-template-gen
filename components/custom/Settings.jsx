@@ -45,12 +45,10 @@ function Settings() {
     const { selectedElement, setSelectedElement } = useSelectedElement();
     const [element, setElement] = useState();
     useEffect(() => {
-        console.log(JSON.stringify(selectedElement))
         setElement(selectedElement?.layout?.[selectedElement?.index])
     }, [selectedElement])
 
     const onHandleInputChange = (fieldName, value) => {
-        console.log(fieldName, "value" + value);
         //Copy of Current SelectedElement
         const updatedData = { ...selectedElement }
         // Update the specific Field

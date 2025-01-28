@@ -20,7 +20,6 @@ function EmailTemplateList() {
             email: userDetail?.email
         })
 
-        console.log('api.emailTemplate.GetAllUserTemplate: ', result);
         setEmailList(result); api.emailTemplate.GetAllUserTemplate
     }
 
