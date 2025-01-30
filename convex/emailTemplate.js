@@ -51,18 +51,26 @@ export const UpdateTemplateDesign = mutation({
         design: v.any(),// Email Template Design
     },
     handler: async (ctx, args) => {
+        console.log('args: ', args);
 
         // Get Doc Id
-        const result = await ctx.db.query('emailTemplates')
-            .filter(q => q.eq(q.field('tid'), args.tid))
-            .collect();
+        try {
+            const result = await ctx.db.query('emailTemplates')
+                .filter(q => q.eq(q.field('tid'), args.tid))
+                .collect();
 
-        const docId = result[0]._id;
-        // Update that docId 
+            console.log('UpdateTemplateDesign  -  result: ', result);
 
-        await ctx.db.patch(docId, {
-            design: args.design
-        });
+            const docId = result[0]._id;
+            // Update that docId 
+
+            await ctx.db.patch(docId, {
+                design: args.design
+            });
+        } catch (e) {
+            console.error("Error when updating the record:", error);
+
+        }
     }
 })
 
@@ -78,3 +86,24 @@ export const GetAllUserTemplate = query({
         return result;
     }
 })
+
+
+export const createEmailTemplate = mutation({
+    args: {
+        tid: v.string(),
+        design: v.any(),
+        description: v.any(),
+        email: v.string(),
+    },
+    handler: async (ctx, args) => {
+        const newTemplateId = await ctx.db.insert("emailTemplates", {
+            tid: args.tid,
+            design: args.design,
+            description: args.description,
+            email: args.email
+
+        });
+
+        return newTemplateId;
+    },
+});

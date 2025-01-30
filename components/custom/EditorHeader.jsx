@@ -15,7 +15,15 @@ function EditorHeader({ viewHTMLCode }) {
     const updateEmailTemplate = useMutation(api.emailTemplate.UpdateTemplateDesign);
     const { templateId } = useParams();
     const { emailTemplate, setEmailTemplate } = useEmailTemplate();
+
     const onSaveTemplate = async () => {
+
+        const argsForTemplate = {
+            tid: templateId,
+            design: emailTemplate
+        }
+        console.log('argsForTemplate: ', argsForTemplate);
+
         await updateEmailTemplate({
             tid: templateId,
             design: emailTemplate

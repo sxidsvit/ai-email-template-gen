@@ -1,15 +1,20 @@
 "use client"
+import { useMutation } from 'convex/react'
+import { api } from '@/convex/_generated/api';
+import { useRouter } from 'next/navigation';
 import { useUserDetail } from '@/app/provider'
 import EmailTemplateList from '@/components/custom/EmailTemplateList';
 import Header from '@/components/custom/Header'
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import React, { useState, useEffect } from 'react'
+import { v4 as uuidv4 } from 'uuid';
 
 function Dashboard() {
 
     const { userDetail, setUserDetail } = useUserDetail();
-
+    const createEmailTemplate = useMutation(api.emailTemplate.createEmailTemplate)
+    const router = useRouter();
     const [isClient, setIsClient] = useState(false);
 
     useEffect(() => {
@@ -22,6 +27,18 @@ function Dashboard() {
         return null;
     }
 
+    const templateId = uuidv4()
+
+    const onCreate = async () => {
+        await createEmailTemplate({
+            tid: templateId,
+            design: [],
+            description: 'Handcrafted template',
+            email: userDetail?.email
+        })
+        router.push('/editor/' + templateId)
+    }
+
     return (
         <div>
             {/* <Header /> */}
@@ -29,7 +46,7 @@ function Dashboard() {
                 <div className='flex justify-between items-center'>
                     <h2 className='font-bold text-3xl'>Hello, {userDetail?.name}</h2>
                     <Link href={'/dashboard/create'}>
-                        <Button>+ Create New Email Template</Button>
+                        <Button >+ Create New Email Template</Button>
                     </Link>
                 </div>
                 <EmailTemplateList />

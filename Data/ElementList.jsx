@@ -1,11 +1,11 @@
 
 
-import { Columns2, Facebook, Frame, Framer, Image, Link2, PanelTop, Projector, RectangleEllipsis, SquareSplitVertical, Text, TextSelectionIcon, Twitter } from "lucide-react";
+// import { Columns2, Facebook, Frame, Framer, Image, Link2, PanelTop, Projector, RectangleEllipsis, SquareSplitVertical, Text, TextSelectionIcon, Twitter } from "lucide-react";
 
 
 export default [
     {
-        icon: RectangleEllipsis,
+        icon: "RectangleEllipsis",
         label: 'Button',
         type: 'Button',
         content: 'Sample Button',
@@ -30,7 +30,7 @@ export default [
         }
     },
     {
-        icon: TextSelectionIcon,
+        icon: "TextSelectionIcon",
         type: 'Text',
         label: 'Text',
         textarea: 'Sample Text',
@@ -49,7 +49,7 @@ export default [
         }
     },
     {
-        icon: Image,
+        icon: "Image",
         type: 'Image',
         label: 'Image',
         imageUrl: "/image.png",
@@ -72,7 +72,7 @@ export default [
         }
     },
     {
-        icon: Frame,
+        icon: "Frame",
         type: 'Logo',
         label: 'Logo',
         imageUrl: "/logo.png",
@@ -93,7 +93,7 @@ export default [
         }
     },
     {
-        icon: PanelTop,
+        icon: "PanelTop",
         type: 'LogoHeader',
         label: 'Logo Header',
         imageUrl: "/logo.png",
@@ -114,7 +114,7 @@ export default [
         }
     },
     {
-        icon: SquareSplitVertical,
+        icon: "SquareSplitVertical",
         type: 'Divider',
         label: 'Divider',
         content: '',
@@ -126,7 +126,7 @@ export default [
     },
     {
         type: 'SocialIcons',
-        icon: Twitter,
+        icon: "Twitter",
         label: 'Social Icons',
         socialIcons: [
             {

@@ -6,11 +6,30 @@ import AIInputBox from '@/components/custom/AIInputBox'
 import { Button } from '@/components/ui/button';
 import { useRouter } from 'next/navigation';
 import { v4 as uuidv4 } from 'uuid';
+import { useMutation } from 'convex/react'
+import { api } from '@/convex/_generated/api';
+import { useUserDetail } from '@/app/provider'
+
 
 function Create() {
     const router = useRouter();
-    const tid = uuidv4()
-    const onCreate = () => { router.push('/editor/' + tid) }
+    const { userDetail, setUserDetail } = useUserDetail();
+
+    const createEmailTemplate = useMutation(api.emailTemplate.createEmailTemplate)
+
+    const templateId = uuidv4()
+
+    const onCreate = async () => {
+        await createEmailTemplate({
+            tid: templateId,
+            design: [],
+            description: 'Handcrafted with editor',
+            email: userDetail?.email
+        })
+        router.push('/editor/' + templateId)
+    }
+
+
 
     return (
         <div className='px-10 md:px-28 lg:px-64 xl:px-72 mt-20'>
